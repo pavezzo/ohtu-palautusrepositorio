@@ -20,7 +20,7 @@ class Ostoskori:
     def lisaa_tuote(self, lisattava: Tuote):
         # lisää tuotteen
         loyty = False
-        for i, x in enumerate(self._ostokset):
+        for _, x in enumerate(self._ostokset):
             if x.tuotteen_nimi() == lisattava.nimi():
                 x.muuta_lukumaaraa(1)
                 loyty = True
@@ -32,7 +32,10 @@ class Ostoskori:
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
-        pass
+        for _, x in enumerate(self._ostokset):
+            if x.tuotteen_nimi() == poistettava.nimi():
+                x.muuta_lukumaaraa(-1)
+                break
 
     def tyhjenna(self):
         pass
