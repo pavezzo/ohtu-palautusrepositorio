@@ -35,6 +35,8 @@ class Ostoskori:
         for _, x in enumerate(self._ostokset):
             if x.tuotteen_nimi() == poistettava.nimi():
                 x.muuta_lukumaaraa(-1)
+                if x.lukumaara() == 0:
+                    self._ostokset.remove(x)
                 break
 
     def tyhjenna(self):
