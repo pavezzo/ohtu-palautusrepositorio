@@ -1,5 +1,6 @@
 from tuote import Tuote
 from ostos import Ostos
+from functools import reduce
 
 class Ostoskori:
     def __init__(self):
@@ -13,8 +14,8 @@ class Ostoskori:
         return len(self.ostokset)
 
     def hinta(self):
-        return 0
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
+        return reduce(lambda a, b: a+b.hinta(), self.ostokset, 0)
 
     def lisaa_tuote(self, lisattava: Tuote):
         # lisää tuotteen
