@@ -21,7 +21,7 @@ class Ostoskori:
         # lisää tuotteen
         loyty = False
         for i, x in enumerate(self.ostokset):
-            if x.tuotteet_niim() == lisattava.nimi():
+            if x.tuotteen_nimi() == lisattava.nimi():
                 x.muuta_lukumaaraa(1)
                 loyty = True
                 break
